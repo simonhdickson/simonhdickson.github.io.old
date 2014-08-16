@@ -5,6 +5,15 @@
     <description>FsBlog aims to be a blog-aware static site generator, mostly built in F#. But don't worry,  you won't even need to know any F# to get up and running. So long as you are comfortable  using a command line or terminal, and have a degree of familiarity with Markdown and Razor  syntax - you're good to go!
 </description>
     <item>
+      <title>Ah fuget it!</title>
+      <guid>http://simonhdickson.github.io//blog/2014/08-16-ah-fuget-it</guid>
+      <link>http://simonhdickson.github.io//blog/2014/08-16-ah-fuget-it/</link>
+      <pubDate>Sat, 16 Aug 2014 03:18:42 GMT</pubDate>
+      <description>
+
+</description>
+    </item>
+    <item>
       <title>Running Kafka on Windows</title>
       <guid>http://simonhdickson.github.io//blog/2014/06/13/running-kafka-on-windows</guid>
       <link>http://simonhdickson.github.io//blog/2014/06/13/running-kafka-on-windows/</link>

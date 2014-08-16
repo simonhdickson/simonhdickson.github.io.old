@@ -83,128 +83,79 @@
         <div class="col-sm-9 col-sm-offset-3">
 			
 
-
-<article>    
+<article>
     <div class="page-header">
-        <h1>Blog Archive</h1>
+        <h1>Ah fuget it!</h1>
     </div>
-</article>
+    <div class="col-sm-10">
+        <span class="post-date">
+            
+        </span>
+        <div class="article_body">
+            
+<p>If you use the F# interactive alot like me, you've probably often come undone because there is no easy way to just pull down a nuget package and work with it. Often I end up creating a dummy project just to reference something via nuget and having to script there.</p>
 
-<article class="home">
-    <span class="post-date">
-            <time datetime="2014-08-16T04:18:42" pubdate data-updated="true">August 16, 2014</time>
+<h2>fuget</h2>
 
-    </span>
-    <h2>
-        <a href="../blog/2014/08-16-ah-fuget-it/index.html">Ah fuget it!</a>
-    </h2>
-    <div>
-        
+<p>Even though it sounds like "nuget" with an f instead of an n, it is actually named after a word I often say when using nuget (or atleast sounds like ;)).</p>
 
+<p>It has no external dependencies, it is just a single file that you need to copy into your directory and then you're away.</p>
 
+<p>Simple example of using it:</p>
+
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+<span class="l">7: </span>
+<span class="l">8: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+<span class="prep">#load</span> <span class="s">&quot;</span><span class="s">fuget</span><span class="s">.</span><span class="s">fsx</span><span class="s">&quot;</span>
+<span class="k">open</span> <span class="i">Fuget</span>
+<span class="i">fuget</span> <span class="s">&quot;</span><span class="s">FSharp</span><span class="s">.</span><span class="s">Data</span><span class="s">&quot;</span> <span class="i">Latest</span>
+<span class="prep">#r</span> <span class="o">@</span><span class="s">&quot;</span><span class="s">fuget</span><span class="s">\</span><span class="s">FSharp</span><span class="s">.</span><span class="s">Data</span><span class="s">\</span><span class="s">lib</span><span class="s">\n</span><span class="s">et40</span><span class="s">\</span><span class="s">FSharp</span><span class="s">.</span><span class="s">Data</span><span class="s">.</span><span class="s">dll</span><span class="s">&quot;</span> 
+
+<span class="k">open</span> <span class="i">FSharp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">Data</span>
+
+<span class="k">type</span> <span class="i">fuget</span> <span class="o">=</span> <span class="i">JsonProvider</span><span class="o">&lt;</span><span class="s">&quot;&quot;&quot;</span><span class="s">{</span><span class="s">&quot;</span><span class="s">fuget</span><span class="s">&quot;</span><span class="s">:</span><span class="s">&quot;</span><span class="s">hello</span><span class="s"> </span><span class="s">world</span><span class="s">&quot;</span><span class="s">}</span><span class="s">&quot;&quot;&quot;</span><span class="o">&gt;</span></pre>
+</td>
+</tr>
+</table>
+
+<p>You can also request an exact version using:</p>
+
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l">1: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+<span class="i">fuget</span> <span class="s">&quot;</span><span class="s">FSharp</span><span class="s">.</span><span class="s">Data</span><span class="s">&quot;</span> (<span class="i">Version</span> <span class="s">&quot;</span><span class="s">2</span><span class="s">.</span><span class="s">0</span><span class="s">.</span><span class="s">9</span><span class="s">&quot;</span>)</pre>
+</td>
+</tr>
+</table>
+
+<p>It works both from the interactive and from fsx files (even from inside FAKE scripts).</p>
+
+<p>However I only wrote it yesterday afternoon while drinking beer so I in no way take responsibility for any damage it may cause. It also has some issues currently (it doesn't handle dependencies, there is no way to query for packages so you have to just know which package you want).</p>
+
+<p>Btw, it does run on Mac (and probably Linux too but I don't have a Linux VM setup on this machine):</p>
+
+<p><img src="/media/fuget/mac-terminal-screenshot.png" alt="Alt text" /></p>
+
+<div class="tip" id="fs1">namespace Microsoft.FSharp.Data</div>
+
+        </div>
     </div>
-    <ul class="pager">
-        <li class="previous">
-            <a href="../blog/2014/08-16-ah-fuget-it/index.html">Read more...</a>
-        </li>
-    </ul>
+    <div class="col-sm-2 sidebar-2">
+        	
+	</div>
 </article>
-<article class="home">
-    <span class="post-date">
-            <time datetime="2013-12-14T10:00:00" pubdate data-updated="true">December 14, 2013</time>
-
-    </span>
-    <h2>
-        <a href="../blog/2013/12/14/nancy-plus-fsharp/index.html">Nancy + F# = Fancy</a>
-    </h2>
-    <div>
-        
-
-
-    </div>
-    <ul class="pager">
-        <li class="previous">
-            <a href="../blog/2013/12/14/nancy-plus-fsharp/index.html">Read more...</a>
-        </li>
-    </ul>
-</article>
-<article class="home">
-    <span class="post-date">
-            <time datetime="2013-12-03T20:37:00" pubdate data-updated="true">December 3, 2013</time>
-
-    </span>
-    <h2>
-        <a href="../blog/2013/12/03/owin-the-myth/index.html">Owin: The Myth, the Monad</a>
-    </h2>
-    <div>
-        
-
-
-    </div>
-    <ul class="pager">
-        <li class="previous">
-            <a href="../blog/2013/12/03/owin-the-myth/index.html">Read more...</a>
-        </li>
-    </ul>
-</article>
-<article class="home">
-    <span class="post-date">
-            <time datetime="2013-11-24T22:05:00" pubdate data-updated="true">November 24, 2013</time>
-
-    </span>
-    <h2>
-        <a href="../blog/2013/11/24/tabs-vs-spaces/index.html">Tabs vs Spaces</a>
-    </h2>
-    <div>
-        
-
-
-    </div>
-    <ul class="pager">
-        <li class="previous">
-            <a href="../blog/2013/11/24/tabs-vs-spaces/index.html">Read more...</a>
-        </li>
-    </ul>
-</article>
-<article class="home">
-    <span class="post-date">
-            <time datetime="2013-11-22T15:56:00" pubdate data-updated="true">November 22, 2013</time>
-
-    </span>
-    <h2>
-        <a href="../blog/2013/11/22/the-simon-says-monad/index.html">The Simon Says Monad</a>
-    </h2>
-    <div>
-        
-
-
-    </div>
-    <ul class="pager">
-        <li class="previous">
-            <a href="../blog/2013/11/22/the-simon-says-monad/index.html">Read more...</a>
-        </li>
-    </ul>
-</article>
-<article class="home">
-    <span class="post-date">
-            <time datetime="2013-11-16T15:33:00" pubdate data-updated="true">November 16, 2013</time>
-
-    </span>
-    <h2>
-        <a href="../blog/2013/11/16/fscheck/index.html">FsCheck</a>
-    </h2>
-    <div>
-        
-
-
-    </div>
-    <ul class="pager">
-        <li class="previous">
-            <a href="../blog/2013/11/16/fscheck/index.html">Read more...</a>
-        </li>
-    </ul>
-</article>
-
+<div class="clearfix"></div>
             <!-- footer.html -->
 		<footer>
 			<hr/>
