@@ -1,29 +1,69 @@
 <rss version="2.0">
   <channel>
     <title>FsBlog - F# static site generation</title>
-    <link>http://saxonmatt.co.uk/FsBlog</link>
-    <description>
-    FsBlog aims to be a blog-aware static site generator, mostly built in F#. But don't worry, 
-    you won't even need to know any F# to get up and running. So long as you are comfortable 
-    using a command line or terminal, and have a degree of familiarity with Markdown and Razor 
-    syntax - you're good to go!</description>
+    <link>http://localhost:8080/FsBlog</link>
+    <description>FsBlog aims to be a blog-aware static site generator, mostly built in F#. But don't worry,  you won't even need to know any F# to get up and running. So long as you are comfortable  using a command line or terminal, and have a degree of familiarity with Markdown and Razor  syntax - you're good to go!
+</description>
     <item>
-      <title>Getting Started</title>
-      <guid>http://saxonmatt.co.uk/FsBlog/blog/2013/11-09-getting-started</guid>
-      <link>http://saxonmatt.co.uk/FsBlog/blog/2013/11-09-getting-started/index.html</link>
-      <pubDate>Sat, 09 Nov 2013 12:38:14 GMT</pubDate>
-      <description>&lt;p&gt;If you've much experience with other static site generators like &lt;em&gt;Octopress&lt;/em&gt; or &lt;em&gt;Jekyll&lt;/em&gt; most of this should be fairly familiar, if not, hopefully it won't be too difficult to pick up.&lt;/p&gt;
-
+      <title>Running Kafka on Windows</title>
+      <guid>http://localhost:8080/FsBlog/blog/2014/06/13/running-kafka-on-windows</guid>
+      <link>http://localhost:8080/FsBlog/blog/2014/06/13/running-kafka-on-windows/</link>
+      <pubDate>Fri, 13 Jun 2014 19:16:00 GMT</pubDate>
+      <description>
 
 </description>
     </item>
     <item>
-      <title>Hello, FsBlog!</title>
-      <guid>http://saxonmatt.co.uk/FsBlog/blog/2013/11-08-hello-fsblog</guid>
-      <link>http://saxonmatt.co.uk/FsBlog/blog/2013/11-08-hello-fsblog/index.html</link>
-      <pubDate>Fri, 08 Nov 2013 11:27:31 GMT</pubDate>
-      <description>&lt;p&gt;&lt;strong&gt;FsBlog&lt;/strong&gt; aims to be a blog-aware static site generator, mostly built in &lt;code&gt;F#&lt;/code&gt; for .NET and Mono developers.&lt;/p&gt;
+      <title>F# 3.1 as C# 6.0 Strict Mode</title>
+      <guid>http://localhost:8080/FsBlog/blog/2014/02/27/fsharp-31-as-csharp-60-strict-mode</guid>
+      <link>http://localhost:8080/FsBlog/blog/2014/02/27/fsharp-31-as-csharp-60-strict-mode/</link>
+      <pubDate>Thu, 27 Feb 2014 23:32:00 GMT</pubDate>
+      <description>
 
+</description>
+    </item>
+    <item>
+      <title>Nancy + F# = Fancy</title>
+      <guid>http://localhost:8080/FsBlog/blog/2013/12/14/nancy-plus-fsharp</guid>
+      <link>http://localhost:8080/FsBlog/blog/2013/12/14/nancy-plus-fsharp/</link>
+      <pubDate>Sat, 14 Dec 2013 10:00:00 GMT</pubDate>
+      <description>
+
+</description>
+    </item>
+    <item>
+      <title>Owin: The Myth, the Monad</title>
+      <guid>http://localhost:8080/FsBlog/blog/2013/12/03/owin-the-myth</guid>
+      <link>http://localhost:8080/FsBlog/blog/2013/12/03/owin-the-myth/</link>
+      <pubDate>Tue, 03 Dec 2013 20:37:00 GMT</pubDate>
+      <description>
+
+</description>
+    </item>
+    <item>
+      <title>Tabs vs Spaces</title>
+      <guid>http://localhost:8080/FsBlog/blog/2013/11/24/tabs-vs-spaces</guid>
+      <link>http://localhost:8080/FsBlog/blog/2013/11/24/tabs-vs-spaces/</link>
+      <pubDate>Sun, 24 Nov 2013 22:05:00 GMT</pubDate>
+      <description>
+
+</description>
+    </item>
+    <item>
+      <title>The Simon Says Monad</title>
+      <guid>http://localhost:8080/FsBlog/blog/2013/11/22/the-simon-says-monad</guid>
+      <link>http://localhost:8080/FsBlog/blog/2013/11/22/the-simon-says-monad/</link>
+      <pubDate>Fri, 22 Nov 2013 15:56:00 GMT</pubDate>
+      <description>
+
+</description>
+    </item>
+    <item>
+      <title>FsCheck</title>
+      <guid>http://localhost:8080/FsBlog/blog/2013/11/16/fscheck</guid>
+      <link>http://localhost:8080/FsBlog/blog/2013/11/16/fscheck/</link>
+      <pubDate>Sat, 16 Nov 2013 15:33:00 GMT</pubDate>
+      <description>
 
 </description>
     </item>
