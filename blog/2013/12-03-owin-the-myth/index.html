@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>FsBlog</title>
+    <title>Owin: The Myth, the Monad</title>
 	  <meta name="description" content="">
     <meta name="author" content="Simon Dickson">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -94,7 +94,7 @@
           <img src="http://www.gravatar.com/avatar/db889c0148e478a362dd7a3c5fb818a5?s=150" class="img-circle" />
         </a>
         <h3 class="title">
-              <a href="https://simonhdickson.github.io//">FsBlog</a>
+              <a href="https://simonhdickson.github.io//">Owin: The Myth, the Monad</a>
           </h3>
       </header>
 
@@ -138,12 +138,58 @@
 
     <div class="col-sm-9 col-sm-offset-3">
       
+<div class="page-header">
+    <h1>Owin: The Myth, the Monad</h1>
+</div>
 
+<article>
+    
+<p>I've played with owin in F# <a href="https://github.com/simonhdickson/Bar">before</a> and recently have been playing with computational builders. So I thought the other day, how about combining them both so you can write something long the lines of this:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">pipeline</span> <span class="o">=</span>
+    <span class="i">owin</span> {
+        <span class="i">get</span> <span class="s">&quot;/&quot;</span> &lt;@ <span class="k">fun</span> () <span class="k">-&gt;</span> <span class="s">&quot;Hello World&quot;</span> @&gt;
+    }
+</code></pre></td>
+</tr>
+</table>
+<p>Gotta love that syntactic sugar, so how do we do this? Well really, the owin monad is actually really simple to implement. You have a state, in this case the state is the is the IAppBuilder. So for posterity let's just steal the important bits of the state monad from FSharpx and use that. So let's skip to the good bit:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+<span class="l">7: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="t">OwinBuilder</span>() <span class="o">=</span>
+    <span class="c">// omitted</span>
+    [&lt;<span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="t">CustomOperation</span>(<span class="s">&quot;get&quot;</span>, <span class="i">MaintainsVariableSpaceUsingBind</span><span class="o">=</span><span class="k">true</span>)&gt;]
+    <span class="k">member</span> <span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="i">this</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="f">Get</span>(<span onmouseout="hideTip(event, 'fs6', 6)" onmouseover="showTip(event, 'fs6', 6)" class="i">m</span>, <span onmouseout="hideTip(event, 'fs7', 7)" onmouseover="showTip(event, 'fs7', 7)" class="i">url</span>, <span onmouseout="hideTip(event, 'fs8', 8)" onmouseover="showTip(event, 'fs8', 8)" class="i">processor</span>) <span class="o">=</span>
+        <span onmouseout="hideTip(event, 'fs4', 9)" onmouseover="showTip(event, 'fs4', 9)" class="i">this</span><span class="o">.</span><span class="i">Bind</span>(<span onmouseout="hideTip(event, 'fs6', 10)" onmouseover="showTip(event, 'fs6', 10)" class="i">m</span>, <span class="k">fun</span> <span class="i">a</span> <span class="k">-&gt;</span>
+            <span onmouseout="hideTip(event, 'fs4', 11)" onmouseover="showTip(event, 'fs4', 11)" class="i">this</span><span class="o">.</span><span class="i">Bind</span>(<span class="i">getState</span>, <span class="k">fun</span> (<span class="i">app</span><span class="o">:</span><span class="i">IAppBuilder</span>) <span class="k">-&gt;</span>
+                <span class="i">putState</span> <span class="o">&lt;|</span> <span class="i">app</span><span class="o">.</span><span class="i">UseRequestProcessor</span>(<span class="s">&quot;GET&quot;</span>, <span onmouseout="hideTip(event, 'fs7', 12)" onmouseover="showTip(event, 'fs7', 12)" class="i">url</span>, <span onmouseout="hideTip(event, 'fs8', 13)" onmouseover="showTip(event, 'fs8', 13)" class="i">processor</span>)))
+</code></pre></td>
+</tr>
+</table>
+<p>In a computation expression there is a <a href="http://msdn.microsoft.com/en-us/library/dd233182.aspx">standard workflow</a> for operations that you can use (this includes the Bind operation). In our case we don't actually want this, we want to define our own operators (for get, post, etc). The CustomOperation attribute allows you to define a these, and also describe how your custom operator works.</p>
+<p>In this case we want to define our operator so that each line defines a new endpoint of our web api, and pass all the state around in the background. To do this the "MaintainsVariableSpaceUsingBind", works to bind all the statements together. In the above code any previous operators will be passed in the m paramter, and then the we're basically appending our new owin endpoint to end of that, which will then be passed into the next operator, etc.</p>
+<p>Anyway, here is a <a href="https://github.com/simonhdickson/OwinBuilder">link to the repository</a>, if you're interested in looking into it further.</p>
 
-    <a href="blog/2013/11-24-tabs-vs-spaces/index.html">Tabs vs Spaces</a>
-    <a href="blog/2013/11-22-the-simon-says-monad/index.html">The Simon Says Monad</a>
-    <a href="blog/2013/11-16-fscheck/index.html">FsCheck</a>
+<div class="tip" id="fs1">val pipeline : obj<br /><br />Full name: owinthemyth.pipeline</div>
+<div class="tip" id="fs2">Multiple items<br />type OwinBuilder =<br />&#160;&#160;new : unit -&gt; OwinBuilder<br />&#160;&#160;member Get : m:&#39;a * url:&#39;b * processor:&#39;c -&gt; &#39;d<br /><br />Full name: owinthemyth.OwinBuilder<br /><br />--------------------<br />new : unit -&gt; OwinBuilder</div>
+<div class="tip" id="fs3">Multiple items<br />type CustomOperationAttribute =<br />&#160;&#160;inherit Attribute<br />&#160;&#160;new : name:string -&gt; CustomOperationAttribute<br />&#160;&#160;member AllowIntoPattern : bool<br />&#160;&#160;member IsLikeGroupJoin : bool<br />&#160;&#160;member IsLikeJoin : bool<br />&#160;&#160;member IsLikeZip : bool<br />&#160;&#160;member JoinConditionWord : string<br />&#160;&#160;member MaintainsVariableSpace : bool<br />&#160;&#160;member MaintainsVariableSpaceUsingBind : bool<br />&#160;&#160;member Name : string<br />&#160;&#160;...<br /><br />Full name: Microsoft.FSharp.Core.CustomOperationAttribute<br /><br />--------------------<br />new : name:string -&gt; CustomOperationAttribute</div>
+<div class="tip" id="fs4">val this : OwinBuilder</div>
+<div class="tip" id="fs5">member OwinBuilder.Get : m:&#39;a * url:&#39;b * processor:&#39;c -&gt; &#39;d<br /><br />Full name: owinthemyth.OwinBuilder.Get</div>
+<div class="tip" id="fs6">val m : &#39;a</div>
+<div class="tip" id="fs7">val url : &#39;b</div>
+<div class="tip" id="fs8">val processor : &#39;c</div>
 
+</article>
 
       <footer>
         <hr/>

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>FsBlog</title>
+    <title>Tabs vs Spaces</title>
 	  <meta name="description" content="">
     <meta name="author" content="Simon Dickson">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -94,7 +94,7 @@
           <img src="http://www.gravatar.com/avatar/db889c0148e478a362dd7a3c5fb818a5?s=150" class="img-circle" />
         </a>
         <h3 class="title">
-              <a href="https://simonhdickson.github.io//">FsBlog</a>
+              <a href="https://simonhdickson.github.io//">Tabs vs Spaces</a>
           </h3>
       </header>
 
@@ -138,12 +138,35 @@
 
     <div class="col-sm-9 col-sm-offset-3">
       
+<div class="page-header">
+    <h1>Tabs vs Spaces</h1>
+</div>
 
+<article>
+    
+<h3>Spaces, the final frontier</h3>
+<p>Tabs vs Spaces: the greatest of all the holy wars. Well it turns out that in F# there is no need for that debate: because in F# tabs are treated as an error by the compiler.</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="f">spaceFun</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">x</span> <span class="o">=</span>
+	<span onmouseout="hideTip(event, 'fs2', 3)" onmouseover="showTip(event, 'fs2', 3)" class="i">x</span> <span class="c">// ok</span>
 
-    <a href="blog/2013/11-24-tabs-vs-spaces/index.html">Tabs vs Spaces</a>
-    <a href="blog/2013/11-22-the-simon-says-monad/index.html">The Simon Says Monad</a>
-    <a href="blog/2013/11-16-fscheck/index.html">FsCheck</a>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs3', 4)" onmouseover="showTip(event, 'fs3', 4)" class="f">tabFun</span> <span onmouseout="hideTip(event, 'fs2', 5)" onmouseover="showTip(event, 'fs2', 5)" class="i">x</span> <span class="o">=</span>
+	<span onmouseout="hideTip(event, 'fs2', 6)" onmouseover="showTip(event, 'fs2', 6)" class="i">x</span> <span class="c">// error!</span>
+</code></pre></td>
+</tr>
+</table>
+<p>Now if only there was an option for the F# compiler to treat nulls as errors too...</p>
 
+<div class="tip" id="fs1">val spaceFun : x:&#39;a -&gt; &#39;a<br /><br />Full name: tabsvsspaces.spaceFun</div>
+<div class="tip" id="fs2">val x : &#39;a</div>
+<div class="tip" id="fs3">val tabFun : x:&#39;a -&gt; &#39;a<br /><br />Full name: tabsvsspaces.tabFun</div>
+
+</article>
 
       <footer>
         <hr/>
