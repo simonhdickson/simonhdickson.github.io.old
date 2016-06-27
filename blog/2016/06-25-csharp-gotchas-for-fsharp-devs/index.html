@@ -235,7 +235,7 @@ not expressions.</p>
 <span class="k">var</span> port <span class="o">=</span>
     <span class="k">if</span> (isProduction)
         <span class="n">80</span>;
-    <span class="k">else</span> <span class="k">if</span> (isProduction)
+    <span class="k">else</span> <span class="k">if</span> (isStaging)
         <span class="n">81</span>;
     <span class="k">else</span>
         <span class="n">5000</span>;
@@ -252,7 +252,7 @@ not expressions.</p>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="cs"><span class="k">int</span> port;
 <span class="k">if</span> (isProduction)
     port <span class="o">=</span> <span class="n">80</span>;
-<span class="k">else</span> <span class="k">if</span> (isProduction)
+<span class="k">else</span> <span class="k">if</span> (isStaging)
     port <span class="o">=</span> <span class="n">81</span>;
 <span class="k">else</span>
     port <span class="o">=</span> <span class="n">5000</span>;
@@ -301,7 +301,7 @@ but not for value types).</p>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="cs"><span class="k">int</span> port;
 <span class="k">if</span> (isProduction)
     port <span class="o">=</span> <span class="n">80</span>;
-<span class="k">else</span> <span class="k">if</span> (isProduction)
+<span class="k">else</span> <span class="k">if</span> (isStaging)
     port <span class="o">=</span> <span class="n">81</span>;
 <span class="c">// Did we mean to do this?</span>
 </code></pre></td></tr></table>
