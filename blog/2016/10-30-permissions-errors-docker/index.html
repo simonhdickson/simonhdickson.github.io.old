@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>FsBlog</title>
+    <title>Permissions Error with Docker on Windows</title>
 	  <meta name="description" content="">
     <meta name="author" content="Simon Dickson">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -94,7 +94,7 @@
           <img src="http://www.gravatar.com/avatar/db889c0148e478a362dd7a3c5fb818a5?s=150" class="img-circle" />
         </a>
         <h3 class="title">
-              <a href="https://simonhdickson.github.io/">FsBlog</a>
+              <a href="https://simonhdickson.github.io/">Permissions Error with Docker on Windows</a>
           </h3>
       </header>
 
@@ -138,18 +138,25 @@
 
     <div class="col-sm-9 col-sm-offset-3">
       
+<div class="page-header">
+    <h1>Permissions Error with Docker on Windows</h1>
+</div>
 
-    <a href="blog/2016/10-30-permissions-errors-docker/index.html">Permissions Error with Docker on Windows</a>
-    <a href="blog/2016/06-25-csharp-gotchas-for-fsharp-devs/index.html">C# gotchas for F# devs</a>
-    <a href="blog/2014/08-16-ah-fuget-it/index.html">Ah fuget it</a>
-    <a href="blog/2014/06-13-running-kafka-on-windows/index.html">Running Kafka on Windows</a>
-    <a href="blog/2014/02-27-fsharp-31-as-csharp-60-strict-mode/index.html">F# 3.1 as C# 6.0 Strict Mode</a>
-    <a href="blog/2013/12-14-nancy-plus-fsharp/index.html">Nancy + F# = Fancy</a>
-    <a href="blog/2013/12-03-owin-the-myth/index.html">Owin: The Myth, the Monad</a>
-    <a href="blog/2013/11-24-tabs-vs-spaces/index.html">Tabs vs Spaces</a>
-    <a href="blog/2013/11-22-the-simon-says-monad/index.html">The Simon Says Monad</a>
-    <a href="blog/2013/11-16-fscheck/index.html">FsCheck</a>
+<article>
+    
+<p>The other day I came across a Jekyll project I wanted to check out on my Windows 10
+machine. I added a little Dockerfile and tried to build a container, and then I got
+this error when running it:</p>
+<p><img src="/assets/media/docker/permissions_error.png" alt="Permissions error" /></p>
+<p>At first I thought it was a jekyll problem, but then I realised it is actually
+a docker issue. Recently I had to re-install the OS my machine and had forgot to share
+the folder with docker. If you go into Docker Settings and "Shared Drives":</p>
+<p><img src="/assets/media/docker/docker_shared_folder.png" alt="Permissions error" /></p>
+<p>Now when your docker container tries to access your C Drive (or whichever drive you
+shared) it should have permission now.</p>
 
+
+</article>
 
       <footer>
         <hr/>

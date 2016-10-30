@@ -5,10 +5,28 @@
     <description>FsBlog aims to be a blog-aware static site generator, mostly built in F#. But don't worry, you won't even need to know any F# to get up and running. So long as you are comfortable using a command line or terminal, and have a degree of familiarity with Markdown and Razor syntax - you're good to go!
 </description>
     <item>
+      <title>Permissions Error with Docker on Windows</title>
+      <guid>https://simonhdickson.github.io/blog/2016/10-30-permissions-errors-docker</guid>
+      <link>https://simonhdickson.github.io/blog/2016/10-30-permissions-errors-docker/index.html</link>
+      <pubDate>Sun, 30 Oct 2016 14:25:39 GMT</pubDate>
+      <description>
+
+</description>
+    </item>
+    <item>
+      <title>C# gotchas for F# devs</title>
+      <guid>https://simonhdickson.github.io/blog/2016/06-25-csharp-gotchas-for-fsharp-devs</guid>
+      <link>https://simonhdickson.github.io/blog/2016/06-25-csharp-gotchas-for-fsharp-devs/index.html</link>
+      <pubDate>Sat, 25 Jun 2016 10:41:08 GMT</pubDate>
+      <description>
+
+</description>
+    </item>
+    <item>
       <title>Ah fuget it</title>
       <guid>https://simonhdickson.github.io/blog/2014/08-16-ah-fuget-it</guid>
       <link>https://simonhdickson.github.io/blog/2014/08-16-ah-fuget-it/index.html</link>
-      <pubDate>Sat, 16 Aug 2014 20:16:00 GMT</pubDate>
+      <pubDate>Sat, 16 Aug 2014 19:16:00 GMT</pubDate>
       <description>
 
 </description>
@@ -17,7 +35,7 @@
       <title>Running Kafka on Windows</title>
       <guid>https://simonhdickson.github.io/blog/2014/06-13-running-kafka-on-windows</guid>
       <link>https://simonhdickson.github.io/blog/2014/06-13-running-kafka-on-windows/index.html</link>
-      <pubDate>Fri, 13 Jun 2014 20:16:00 GMT</pubDate>
+      <pubDate>Fri, 13 Jun 2014 19:16:00 GMT</pubDate>
       <description>
 
 </description>
